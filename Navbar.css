@@ -1,0 +1,127 @@
+/* src/components/Navbar.css */
+
+/* Main navbar container styling */
+.cosmic-navbar {
+  position: absolute; /* Floats over the page content */
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 0;
+  z-index: 1000; /* Ensures it's on top of everything */
+  transition: background-color 0.3s ease;
+
+  /* Frosted glass effect */
+  background: rgba(15, 12, 41, 0.3); /* Semi-transparent dark background */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Brand/logo styling with gradient text */
+.cosmic-navbar .navbar-brand {
+  font-size: 1.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  
+  /* Gradient text effect */
+  background: linear-gradient(45deg, #fff, #b39ddb, #fff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.cosmic-navbar .navbar-brand:hover {
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Styling for the regular navigation links */
+.cosmic-navbar .nav-link {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.cosmic-navbar .nav-link:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* General styling for all buttons in the nav */
+.cosmic-navbar .btn-nav {
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-out;
+  margin: 0 0.5rem;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.cosmic-navbar .btn-nav:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Specific gradient for the Sign Up button */
+.cosmic-navbar .signup-btn {
+  background: linear-gradient(45deg, #da4453, #89216b);
+}
+
+/* Styling for Sign In and Log Out buttons */
+.cosmic-navbar .signin-btn,
+.cosmic-navbar .logout-btn {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cosmic-navbar .signin-btn:hover,
+.cosmic-navbar .logout-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+/* Profile image styling */
+.cosmic-navbar .image_profile_user {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.cosmic-navbar .profile-item:hover .image_profile_user {
+  border-color: #fff;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Styling for the responsive hamburger menu icon */
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+
+/* Align items correctly on smaller screens */
+@media (max-width: 991.98px) {
+  .cosmic-navbar .navbar-nav {
+    padding-top: 1rem;
+  }
+  .cosmic-navbar .nav-item {
+    margin-bottom: 0.5rem;
+  }
+}

@@ -1,0 +1,97 @@
+/* src/components/todo/Update.css */
+
+/* The semi-transparent black background for the modal */
+.update-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000; /* Ensures it's on top of everything */
+}
+
+/* The main modal pop-up box */
+.update-modal-content {
+  width: 100%;
+  max-width: 500px;
+  padding: 2.5rem;
+  border-radius: 25px;
+  
+  /* Glass effect to match the theme */
+  background: rgba(36, 36, 62, 0.8); /* Darker glass */
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.update-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  background: linear-gradient(45deg, #fff, #b39ddb, #fff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.update-input, .update-textarea {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.5rem;
+  border-radius: 12px;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.update-textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.update-input:focus, .update-textarea:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: #d76d77;
+  box-shadow: 0 0 20px rgba(215, 109, 119, 0.5);
+}
+
+.update-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.update-actions .action-btn {
+  flex-grow: 1;
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+.update-actions .update-btn {
+  color: white;
+  background: linear-gradient(45deg, #da4453, #89216b);
+}
+
+.update-actions .close-btn {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.update-actions .close-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}

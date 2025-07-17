@@ -1,0 +1,191 @@
+/* src/components/signin/Signin.css */
+
+/* Import a modern, clean font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* --- Keyframes for animations (same as other pages) --- */
+@keyframes moveBlob1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(40vw, -30vh) scale(1.2); }
+  50% { transform: translate(20vw, 50vh) scale(0.8); }
+  75% { transform: translate(-30vw, -20vh) scale(1.1); }
+}
+
+@keyframes moveBlob2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(-30vw, 20vh) scale(0.8); }
+  50% { transform: translate(10vw, -40vh) scale(1.2); }
+  75% { transform: translate(40vw, 30vh) scale(1); }
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) skewX(-25deg); }
+  100% { transform: translateX(200%) skewX(-25deg); }
+}
+
+/* --- Main Styles --- */
+.signin-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+  position: relative;
+  background: #0f0c29;
+  background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+  background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+}
+
+.signin-wrapper::before,
+.signin-wrapper::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  z-index: 1;
+}
+
+.signin-wrapper::before {
+  background: #ff47a1;
+  width: 400px;
+  height: 400px;
+  animation: moveBlob1 20s infinite ease;
+}
+
+.signin-wrapper::after {
+  background: #23a6d5;
+  width: 300px;
+  height: 300px;
+  top: 60vh;
+  left: 60vw;
+  animation: moveBlob2 25s infinite ease;
+}
+
+/* Container for both the vertical text and the form */
+.signin-content {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  z-index: 2;
+}
+
+/* Vertical Text Styling */
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-size: 4rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.2);
+  letter-spacing: 1rem;
+}
+
+.vertical-text .space {
+  margin-top: 2rem;
+}
+
+/* Form Container Styling */
+.signin-container {
+  width: 100%;
+  max-width: 420px;
+  padding: 3rem;
+  border-radius: 25px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: all 0.3s ease;
+}
+
+.signin-container:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
+}
+
+.signin-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  background: linear-gradient(45deg, #fff, #b39ddb, #fff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.form-input {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.5rem;
+  border-radius: 12px;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.form-input:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: #d76d77;
+  box-shadow: 0 0 20px rgba(215, 109, 119, 0.5);
+}
+
+.btn-signin {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(45deg, #da4453, #89216b);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+}
+
+.btn-signin:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.btn-signin::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateX(-100%) skewX(-25deg);
+}
+
+.btn-signin:hover::after {
+  animation: shine 1s ease;
+}
+
+.btn-signin:active {
+  transform: translateY(0) scale(1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .vertical-text {
+    display: none; /* Hide vertical text on smaller screens */
+  }
+  .signin-content {
+    gap: 0;
+  }
+}

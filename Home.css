@@ -1,0 +1,141 @@
+/* src/components/home/Home.css */
+
+/* --- Keyframes for the animations (same as signup page) --- */
+
+/* Animation for the floating color blobs in the background */
+@keyframes moveBlob1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(40vw, -30vh) scale(1.2); }
+  50% { transform: translate(20vw, 50vh) scale(0.8); }
+  75% { transform: translate(-30vw, -20vh) scale(1.1); }
+}
+
+@keyframes moveBlob2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(-30vw, 20vh) scale(0.8); }
+  50% { transform: translate(10vw, -40vh) scale(1.2); }
+  75% { transform: translate(40vw, 30vh) scale(1); }
+}
+
+/* Animation for the button's shine effect */
+@keyframes shine {
+  0% { transform: translateX(-100%) skewX(-25deg); }
+  100% { transform: translateX(200%) skewX(-25deg); }
+}
+
+
+/* --- Main Styles for the Home Component --- */
+
+.home-wrapper {
+  height: 100vh; /* Full screen height */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Important to contain the blobs */
+  position: relative;
+  font-family: 'Poppins', sans-serif; /* Assumes Poppins is imported elsewhere, e.g., index.css */
+  
+  /* The cosmic background gradient */
+  background: #0f0c29;
+  background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+  background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+}
+
+/* These pseudo-elements are the floating blobs */
+.home-wrapper::before,
+.home-wrapper::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  z-index: 1;
+}
+
+.home-wrapper::before {
+  background: #ff47a1;
+  width: 400px;
+  height: 400px;
+  animation: moveBlob1 20s infinite ease;
+}
+
+.home-wrapper::after {
+  background: #23a6d5;
+  width: 300px;
+  height: 300px;
+  top: 60vh;
+  left: 60vw;
+  animation: moveBlob2 25s infinite ease;
+}
+
+/* This container holds the text and button, ensuring it's above the background blobs */
+.home-content {
+  z-index: 2;
+  position: relative;
+  padding: 20px;
+}
+
+.home-title {
+  font-size: 4rem; /* Larger, more impactful font size */
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  margin-bottom: 1.5rem;
+}
+
+/* Make the "stress-free" part of the title white */
+.home-title span {
+  color: #fff; /* Changed from a gradient to solid white */
+}
+
+.home-description {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2.5rem;
+  max-width: 500px;
+}
+
+.home-btn {
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(45deg, #da4453, #89216b);
+  border: none;
+  border-radius: 50px; /* Fully rounded "pill" shape */
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+}
+
+/* --- The Ultra-Cool Hover Effect for the button --- */
+.home-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* The shine element */
+.home-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateX(-100%) skewX(-25deg);
+}
+
+/* Trigger the shine animation on hover */
+.home-btn:hover::after {
+  animation: shine 1s ease;
+}
+
+.home-btn:active {
+  transform: translateY(0) scale(1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
